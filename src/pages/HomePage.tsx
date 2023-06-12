@@ -15,7 +15,7 @@ const HomePage = () => {
     refetchOnFocus: true
   })
   useEffect(() => {
-    setDropdown(debounced.length !== 0 ?? users?.length !== 0)
+    setDropdown(debounced.length !== 0 ?? (users?.length ?? 0) !== 0)
   }, [debounced])
 
   const clickHandler = (username: string) => {
@@ -50,6 +50,7 @@ const HomePage = () => {
             </ul>}
         <div className="container">
           {isRepoLoading && <p className="text-center"> Repos are loading...</p>}
+          {isRepoError && <p className="text-center text-red-600">Something went wrong...</p>}
           {repos?.map(repo => <p> <RepoCard repo={repo} key={repo.id}/>  </p>)}
 
         </div>
