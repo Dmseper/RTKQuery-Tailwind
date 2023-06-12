@@ -15,7 +15,7 @@ const HomePage = () => {
     refetchOnFocus: true
   })
   useEffect(() => {
-    setDropdown(debounced.length !== 0 ?? (users?.length ?? 0) !== 0)
+    setDropdown(debounced.length !== 0 ?? users?.length !== 0)
   }, [debounced])
 
   const clickHandler = (username: string) => {
